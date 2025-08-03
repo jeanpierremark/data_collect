@@ -70,6 +70,10 @@ async function recup_ville_open(city) {
     const radiation = hourly.shortwave_radiation[lastIndex];
     const uv = current.uv_index;
 
+    const dateNow = new Date()
+    const jour = dateNow.getDate()
+    const heure =dateNow.getHours()
+
     const point = new Point("meteo")
       .tag("ville", city)
       .intField("temperature", Math.round(current.temperature_2m))
@@ -83,7 +87,7 @@ async function recup_ville_open(city) {
       .intField("uv_index",Math.round(uv))
       .floatField("rayonnement_solaire", radiation)
       .floatField("ensoleillement", daily.sunshine_duration[todayIndex])
-      .timestamp(new Date(current.time));
+      .timestamp(new Date());
 
     const writeApi = influxDB.getWriteApi(org, bucket);
     writeApi.writePoint(point);

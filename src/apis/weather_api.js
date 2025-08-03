@@ -20,6 +20,10 @@ async function recup_ville(city, apiKey) {
     }
 
     const writeApi = influxDB.getWriteApi(org, bucket);
+
+    const dateNow = new Date();
+    const jour = dateNow.getDate(); 
+    const heure =dateNow.getHours()
     
     const point = new Point('meteo')
       .tag('ville', city)
