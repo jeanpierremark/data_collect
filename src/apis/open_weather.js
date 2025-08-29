@@ -168,7 +168,7 @@ async function recup_ville(city, apiKey) {
     await writeApi.flush(); 
     await writeApi.close();
   
-    console.log(`OpenWeatherMap ${city}: Temp=${tmp}°C |  Hum=${current.main.humidity}% | Pres=${current.main.pressure} hPa | Prec=${precipitation} mm | Vent=${Math.round(current.wind.speed * 3.6)} km/h | UV=N/A | Nua=${current.clouds.all}% | rain_chance=${chanceOfRain}% | cond: ${current.weather[0].description}\n`);
+    console.log(`OpenWeatherMap ${city}: Temp=${current.main.temp}°C |  Hum=${current.main.humidity}% | Pres=${current.main.pressure} hPa | Prec=${precipitation} mm | Vent=${Math.round(current.wind.speed * 3.6)} km/h | UV=N/A | Nua=${current.clouds.all}% | rain_chance=${chanceOfRain}% | cond: ${current.weather[0].description}\n`);
  
   } catch (error) {
     console.error(`OpenWeatherMap erreur pour ${city}:`, error.message);

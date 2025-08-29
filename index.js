@@ -9,11 +9,10 @@ async function runAllAPIs() {
   await WeatherAPI();
   console.log("Récupération des données météo depuis Open Meteo\n");
   await OpenMeteo();
-  /*console.log("Récupération des données météo depuis VisualCrossing\n");
-  await VisualCrossing();*/
   console.log("Récupération des données météo depuis Open Weather\n");
   await OpenWeather();
-
+  /*console.log("Récupération des données météo depuis VisualCrossing\n");
+  await VisualCrossing();*/
 
 
 }
