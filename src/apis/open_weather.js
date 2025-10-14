@@ -125,7 +125,6 @@ async function recup_ville(city, apiKey) {
     });
     
  
-    // Ajustement de la température actuelle si nécessaire
   
     // Calcul de la chance de pluie pour la journée actuelle
     let chanceOfRain = 0;

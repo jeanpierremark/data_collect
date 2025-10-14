@@ -94,7 +94,7 @@ async function recup_ville_open(city) {
     await writeApi.flush(); 
     await writeApi.close();
    
-    console.log(`Open_meteo ${city}: Temp=${Math.round(current.temperature_2m)}°C | Max=${Math.round(daily.temperature_2m_max[todayIndex])}°C | Min=${Math.round(daily.temperature_2m_min[todayIndex])}°C | Hum=${humidity}% | Pres=${pressure} hPa | Prec=${precipitation} mm | sun=${daily.sunshine_duration[todayIndex]} min | Vent=${current.windspeed_10m} km/h |  UV=${uv} | Nua=${cloudcover}% | Rad=${radiation} W/m² \n`);
+    console.log(`Open_meteo ${city}: Temp=${Math.round(current.temperature_2m)}°C | Max=${Math.round(daily.temperature_2m_max[todayIndex])}°C | Min=${Math.round(daily.temperature_2m_min[todayIndex])}°C | Hum=${humidity}% | Pres=${pressure} hPa | Prec=${precipitation} mm | sun=${daily.sunshine_duration[todayIndex]} s | Vent=${current.windspeed_10m} km/h |  UV=${uv} | Nua=${cloudcover}% | Rad=${radiation} W/m² \n`);
   } catch (error) {
     console.error(`Open_meteo Erreur ${city} :`, error.message);
   }
