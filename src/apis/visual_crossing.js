@@ -1,6 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
-const villes = require('../villes'); // tableau de noms de villes
+const villes = require('../villes'); 
 const { influxDB, org } = require('../influxclient');
 const { Point } = require('@influxdata/influxdb-client');
 

@@ -178,10 +178,10 @@ async function recup_ville_all_weather() {
   const apiKey = process.env.OPENWEATHER_KEY;
   for (const ville of villes) {
     await recup_ville(ville, apiKey);
-    await new Promise(r => setTimeout(r, 1100)); // Respecte la limite de 60 appels/minute
+    await new Promise(r => setTimeout(r, 1100));
   }
    
-  setTimeout(recup_ville_all_weather, 1200000); // 20 minutes
+  setTimeout(recup_ville_all_weather, 1200000); 
 
   const maintenant = new Date();
   const dans20Minutes = new Date(maintenant.getTime() + 20 * 60 * 1000);
