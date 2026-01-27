@@ -4,6 +4,7 @@ const villes = require('../villes');
 const { Point } = require('@influxdata/influxdb-client');
 
 const bucket = 'climate_data_weather';
+WEATHERAPI_KEY = "bc76230665b84e9e923154901252008"
 
 const coordonnees_villes = {
   'Dakar': { lat: 14.6937, lon: -17.4441 },
@@ -143,7 +144,7 @@ async function recup_ville(city, apiKey) {
 }
 
 async function recup_ville_all() {
-  const apiKey = process.env.WEATHERAPI_KEY;
+  const apiKey = WEATHERAPI_KEY;
   for (const ville of villes) {
     await recup_ville(ville, apiKey);
     await new Promise(r => setTimeout(r, 1100));

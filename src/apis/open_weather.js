@@ -4,8 +4,9 @@ const villes = require('../villes');
 const { Point } = require('@influxdata/influxdb-client');
 
 const bucket = 'climate_data_openweather';
+OPENWEATHER_KEY="a9dae6b7d5f31a64c00ff70c29ee978a"
 
-// Coordonnées des principales villes du Sénégal
+// Coordonnées des principale s villes du Sénégal
 const coordonnees_villes = {
   'Dakar': { lat: 14.6937, lon: -17.4441 },
   'Thiès': { lat: 14.7886, lon: -16.9262 },
@@ -45,7 +46,7 @@ async function recup_ville(city, apiKey) {
             units: 'metric',
             lang: 'fr'
           }
-        });
+        }); 
 
         forecastResponse = await axios.get('https://api.openweathermap.org/data/2.5/forecast', {
           params: { 
@@ -175,7 +176,7 @@ async function recup_ville(city, apiKey) {
 }
 
 async function recup_ville_all_weather() {
-  const apiKey = process.env.OPENWEATHER_KEY;
+  const apiKey = OPENWEATHER_KEY;
   for (const ville of villes) {
     await recup_ville(ville, apiKey);
     await new Promise(r => setTimeout(r, 1100));
